@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { registerUser } from "../api/call_api";
 import { checkStringIsEmtpty } from "../util/request_util";
-import InformationModal from "./information_modal";
 
 function SignUpModal(props) {
 

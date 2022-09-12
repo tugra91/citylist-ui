@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Container, Pagination, Row } from "react-bootstrap";
+import { Col, Pagination, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import CityCardItem from "./city_card_item";
 

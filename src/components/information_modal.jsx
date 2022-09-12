@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import { Button, Modal } from "react-bootstrap";
 
 function InformationModal(props) {
