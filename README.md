@@ -43,7 +43,7 @@ In this modal, It will be edited some recorded fields like photoUrl and name of 
 
 
 
-# How can start the project ? 
+# How to start the project ? 
 
 !Note: This project is depend on citylist-api and citylist-authorization. Before install the project, please check other projects which is related from this project.   
 
