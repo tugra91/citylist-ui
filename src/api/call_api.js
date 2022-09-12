@@ -1,5 +1,4 @@
 import { getData, postData, postDataWithHeader } from "./client";
-const base64 = require('base-64');
 
 export const retrieveAllCities = async () => {
     const data = await getData('/api/getAllCities');
@@ -43,11 +42,6 @@ export const signIn = async (username, password) => {
     const token = await postData('/api/signIn', request);
     checkDataResult(token);
     return token.accessToken;
-}
-
-const throwErrorMessage = (message) => {
-    const errorModel = { code: "", message: "", type: "" };
-    errorModel.message = message;
 }
 
 const checkDataResult = (data) => {

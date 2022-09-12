@@ -54,6 +54,7 @@ export const postData = async (path, body) => {
         referrerPolicy: 'no-referrer'
     }
     const response = await fetch(path, requestOptions);
+
     if (!response.ok) {
         return null;
     }
@@ -72,7 +73,14 @@ export const postDataWithHeader = async (path, header, body) => {
         redirect: 'follow',
         referrerPolicy: 'no-referrer'
     }
-    const response = await fetch(path, requestOptions);
+    const response = await fetch(path, requestOptions)
+        .then((response) => {
+            if (response.status === 401) {
+                throw throwErrorMessage("Unauthorization process please login before your current request.");
+            }
+            return response;
+        });
+
     if (!response.ok) {
         return null;
     }
@@ -97,4 +105,8 @@ export const postFormDataWithHeader = async (path, header, formData) => {
     }
     const data = await response.json();
     return data;
+}
+
+const throwErrorMessage = (messageInput) => {
+    return { code: "", message: messageInput, type: "" };
 }
