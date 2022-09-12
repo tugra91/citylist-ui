@@ -11,7 +11,7 @@ CityList is a application which you could see and edit their info cities with li
 # Main Screen
 Opened first time, Main screen of CityList will welcoming. In this screen, It was able to made search, page surf, login or signUp process. 
 
-![Main screen](https://i.postimg.cc/x8JW6C1Y/Main-Screen.png)
+[![Main-Screen2.png](https://i.postimg.cc/tJgy7gBH/Main-Screen2.png)](https://postimg.cc/1nbbjyxW)
 
 # Search Screen 
 
