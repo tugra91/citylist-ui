@@ -1,6 +1,51 @@
-# Getting Started with Create React App
+# Usage of CityList 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is the Citylist ? 
+
+First of all what can we do with cityList and what does it do ?
+
+CityList is a application which you could see and edit their info cities with list. Both you could edit city name or photo and you could search any city you want from amoung of them.
+
+## How could CityList used ? 
+
+# Main Screen
+Opened first time, Main screen of CityList will welcoming. In this screen, It was able to made search, page surf, login or signUp process. 
+
+![Main screen](https://i.postimg.cc/28yPc1MW/Main-Screen.png)
+
+# Search Screen 
+
+![Search Screen](https://i.postimg.cc/tCc8LXGM/Search-Screen.png)
+
+# Login Modal
+
+In this modal, It might be made a login the system. It is very easy process. You have to type username and password and then Login. After that you will see a info message involved to result of login process.
+
+![Login Modal](https://i.postimg.cc/mr7xYKq6/Login-Modal.png)
+
+# SignUp Modal
+
+In this modal, After It opened, It will sighted a register section. It is took three important info such as username, password, name from candicate user and every user is registered with "ALLOW_EDIT" role. 
+
+![SignUp Modal](https://i.postimg.cc/j5TpZZYq/Sign-Up-Modal.png)
+
+# After Login 
+
+After logged into the system, It will sighted welcoming words and log out button. It might be logged out by using logout button. 
+
+![Login Area](https://i.postimg.cc/y8M4S7fZ/Login-Area.png)
+
+# Edit City Modal
+
+In this modal, It will be edited some recorded fields like photoUrl and name of city. If It is insterted a invalid photoURL, photo won't be saw in photo section. It has to insterted valid URL to solve this issue.
+
+![Edit City Info Modal](https://i.postimg.cc/4NFTs6Vw/Edit-City-Info-Modal.png)
+
+
+
+# How can start the project ? 
+
+!Note: This project is depend on citylist-api and citylist-authorization. Before install the project, please check other projects which is related from this project.   
 
 ## Available Scripts
 
@@ -13,58 +58,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
