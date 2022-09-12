@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { registerUser } from "../api/call_api";
+import { checkStringIsEmtpty } from "../util/request_util";
 import InformationModal from "./information_modal";
 
 function SignUpModal(props) {
@@ -8,6 +9,15 @@ function SignUpModal(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    const [submitDisabled, setSubmitDisabled] = useState(true);
+
+    useEffect(() => {
+        if (!checkStringIsEmtpty(username) && !checkStringIsEmtpty(password) && !checkStringIsEmtpty(name)) {
+            setSubmitDisabled(false);
+        } else {
+            setSubmitDisabled(true);
+        }
+    }, [username, password, name]);
 
     return (
         <>
@@ -43,7 +53,7 @@ function SignUpModal(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={props.onHide} variant="danger" >Close</Button>
-                    <Button onClick={() => props.signUp(username, password, name)} variant="success">Register</Button>
+                    <Button onClick={() => props.signUp(username, password, name)} disabled={submitDisabled} variant="success">Register</Button>
                 </Modal.Footer>
             </Modal>
         </>

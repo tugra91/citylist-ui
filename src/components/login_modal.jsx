@@ -1,11 +1,20 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
+import { checkStringIsEmtpty } from "../util/request_util";
 
 function LoginModal(props) {
 
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [submitDisabled, setSubmitDisabled] = useState(true);
 
+    useEffect(() => {
+        if (!checkStringIsEmtpty(username) && !checkStringIsEmtpty(password)) {
+            setSubmitDisabled(false);
+        } else {
+            setSubmitDisabled(true);
+        }
+    }, [username, password]);
 
     return (
         <Modal
@@ -36,7 +45,7 @@ function LoginModal(props) {
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={props.onHide} variant="danger" >Close</Button>
-                <Button onClick={() => props.login(username, password)} variant="primary" >Login</Button>
+                <Button onClick={() => props.login(username, password)} variant="primary" disabled={submitDisabled} >Login</Button>
             </Modal.Footer>
         </Modal>
     );
