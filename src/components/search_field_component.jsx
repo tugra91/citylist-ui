@@ -25,8 +25,11 @@ function SearchFieldComponent() {
         if (searchText === "") {
             initCityList();
         } else {
-            const result = await searchAllCities(searchText);
-            if (result != null) {
+            const result = await searchAllCities(searchText)
+                .catch((error) => {
+                    resetSearch();
+                });
+            if (result !== null && result !== undefined) {
                 dispatch(citiesChanged(result));
             }
         }

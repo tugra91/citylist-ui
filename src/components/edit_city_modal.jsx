@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { editCity } from "../api/call_api";
@@ -23,15 +23,16 @@ function EditCityModal({ show, onHide, cityId, cityName, photoUrl }) {
     const loginProcess = useSelector((state) => state.loginProcess);
 
     const processChangeCityInfo = async () => {
-        const newCity = await editCity(cityId, newCityName, newPhotoUrl, loginProcess.token);
-        if (newCity !== null) {
+        const newCity = await editCity(cityId, newCityName, newPhotoUrl, loginProcess.token)
+            .catch((error) => {
+                onHide();
+                setInfoMessage(error.message);
+                setShowInfo(true);
+            });
+        if (newCity !== null && newCity !== undefined) {
             initCityList();
             onHide();
             setInfoMessage("Wow! Saved your changes successfully.");
-            setShowInfo(true);
-        } else {
-            onHide();
-            setInfoMessage("Unfornutanely, We couldn't process your request. You have to login to edit any city info.");
             setShowInfo(true);
         }
     }

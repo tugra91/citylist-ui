@@ -27,32 +27,34 @@ function WelcomeComponent() {
     }, [loginProcess.loginStatus]);
 
     const processSignUp = async (username, password, name) => {
-        const registerResponse = await registerUser(username, password, name);
-        if (registerResponse !== null) {
+        const registerResponse = await registerUser(username, password, name)
+            .catch((error) => {
+                setShowSignUp(false);
+                setShowInfo(true);
+                setInfoMessage(error.message);
+            });
+        if (registerResponse !== null && registerResponse !== undefined) {
             setShowSignUp(false);
             setShowInfo(true);
             setInfoMessage("Successfully your account was created.");
-        } else {
-            setShowSignUp(false);
-            setShowInfo(true);
-            setInfoMessage("Unfortunately your account isn't registered due to we have been facing some issues. Please try again later.");
         }
     }
 
     const processSignIn = async (username, password) => {
-        const accessToken = await signIn(username, password);
-        if (accessToken != null) {
+        const accessToken = await signIn(username, password)
+            .catch((error) => {
+                dispatch(logout())
+                localStorage.removeItem('login_info');
+                setShowLogin(false);
+                setShowInfo(true);
+                setInfoMessage(error.message);
+            });
+        if (accessToken !== null && accessToken !== undefined) {
             dispatch(loginOK({ token: accessToken, name: username }))
             localStorage.setItem('login_info', JSON.stringify({ token: accessToken, name: username }));
             setShowLogin(false);
             setShowInfo(true);
             setInfoMessage("Successfully you was logged in to system.");
-        } else {
-            dispatch(logout())
-            localStorage.removeItem('login_info');
-            setShowLogin(false);
-            setShowInfo(true);
-            setInfoMessage("Unfortunately you isn't logged in to system due to we have been facing some issues. Please try again later.");
         }
     }
 

@@ -1,6 +1,4 @@
-import encodeUtf8 from "encode-utf8";
-import { useSelector } from "react-redux";
-import { getData, getDataWithHeader, postData, postDataWithHeader, postFormDataWithHeader } from "./client";
+import { getData, postData, postDataWithHeader } from "./client";
 const base64 = require('base-64');
 
 export const retrieveAllCities = async () => {
@@ -15,8 +13,7 @@ export const retrieveAllCities = async () => {
 export const searchAllCities = async (searchTerm) => {
     const request = { searchText: searchTerm };
     const data = await postData('/api/search', request);
-    if (data == null || data.resultList == null)
-        return [];
+    checkDataResult(data);
     return data.resultList;
 }
 
@@ -24,8 +21,7 @@ export const editCity = async (cityId, cityName, photoUrl, storedToken) => {
     const request = { cityId: cityId, newCityName: cityName, newPhotoUrl: photoUrl };
     const headers = { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + storedToken }
     const data = await postDataWithHeader('/api/user/editCity', headers, request);
-    if (data == null || data.newCity == null)
-        return null;
+    checkDataResult(data);
     return data.newCity;
 }
 
@@ -38,17 +34,34 @@ export const registerUser = async (username, password, name) => {
         }
     };
     const data = await postData('/api/registerUser', request);
-
-    if (data == null || data.user == null)
-        return null;
+    checkDataResult(data);
     return data.user;
 }
 
 export const signIn = async (username, password) => {
     const request = { username: username, password: password };
     const token = await postData('/api/signIn', request);
-    if (token == null || token.accessToken == null) {
-        return null;
-    }
+    checkDataResult(token);
     return token.accessToken;
+}
+
+const throwErrorMessage = (message) => {
+    const errorModel = { code: "", message: "", type: "" };
+    errorModel.message = message;
+}
+
+const checkDataResult = (data) => {
+    const errorModel = { code: "", message: "", type: "" };
+    if (data === null || data === undefined) {
+        errorModel.message = "Unfortunately we are facing some issues. Please try again later.";
+        throw errorModel;
+    }
+
+    if (data.code !== null && data.code !== undefined) {
+        errorModel.code = data.code;
+        errorModel.message = data.message;
+        errorModel.type = data.exceptionType;
+        throw errorModel;
+    }
+
 }
