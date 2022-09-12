@@ -59,14 +59,14 @@ function WelcomeComponent() {
     const logoutFunction = () => {
         localStorage.removeItem('login_info');
         dispatch(logout({ token: null, name: null }));
+        setShowInfo(true);
+        setInfoMessage("You was logged out from system. Come Again");
     }
-
-    const infoHide = () => setShowInfo(false);
 
     if (!loginProcess.loginStatus) {
         return (
             <>
-                <InformationModal message={infoMessage} show={showInfo} hide={() => infoHide()} ></InformationModal>
+                <InformationModal message={infoMessage} show={showInfo} hide={() => setShowInfo(false)} ></InformationModal>
                 <Container>
                     <Row>
                         <Col><Button variant="primary" onClick={() => setShowSignUp(true)} > Sign Up </Button></Col>
@@ -92,6 +92,7 @@ function WelcomeComponent() {
     } else {
         return (
             <>
+                <InformationModal message={infoMessage} show={showInfo} hide={() => setShowInfo(false)} ></InformationModal>
                 <Container>
                     <Row>
                         <Col>Welcome on board. Mr/Mrs {loginProcess.name}</Col>
