@@ -52,11 +52,8 @@ function CityCardList() {
             pageItemList.push(<Pagination.First onClick={() => setActiveNumber(1)} />)
             pageItemList.push(<Pagination.Prev onClick={() => setActiveNumber(activeNumber - 1 < 1 ? 1 : activeNumber - 1)} />)
             pageItemList.push(<Pagination.Item key={1} active={activeNumber === 1} onClick={() => setActiveNumber(1)} >1</Pagination.Item>)
-            if (activeNumber < ellipticNumber) {
-                for (let pageNumber = activeNumber; pageNumber <= activeNumber + ellipticNumber; pageNumber++) {
-                    if (pageNumber === 1) {
-                        continue;
-                    }
+            if (activeNumber - ellipticNumber <= 1) {
+                for (let pageNumber = 2; pageNumber <= activeNumber + ellipticNumber; pageNumber++) {
                     pageItemList.push(<Pagination.Item key={pageNumber} active={activeNumber === pageNumber} onClick={() => setActiveNumber(pageNumber)} >{pageNumber}</Pagination.Item>)
                 }
                 let ellipticNumberValue = activeNumber + ellipticNumber + 1;
