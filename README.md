@@ -11,35 +11,35 @@ CityList is a application which you could see and edit their info cities with li
 # Main Screen
 Opened first time, Main screen of CityList will welcoming. In this screen, It was able to made search, page surf, login or signUp process. 
 
-![Main screen](https://i.postimg.cc/28yPc1MW/Main-Screen.png)
+![Main screen](https://i.postimg.cc/x8JW6C1Y/Main-Screen.png)
 
 # Search Screen 
 
-![Search Screen](https://i.postimg.cc/tCc8LXGM/Search-Screen.png)
+![Search Screen](https://i.postimg.cc/HnqFRgrM/Search-Screen.png)
 
 # Login Modal
 
 In this modal, It might be made a login the system. It is very easy process. You have to type username and password and then Login. After that you will see a info message involved to result of login process.
 
-![Login Modal](https://i.postimg.cc/mr7xYKq6/Login-Modal.png)
+![Login Modal](https://i.postimg.cc/s23C3sw9/Login-Modal.png)
 
 # SignUp Modal
 
 In this modal, After It opened, It will sighted a register section. It is took three important info such as username, password, name from candicate user and every user is registered with "ALLOW_EDIT" role. 
 
-![SignUp Modal](https://i.postimg.cc/j5TpZZYq/Sign-Up-Modal.png)
+![SignUp Modal](https://i.postimg.cc/V6Hx9M1D/Sign-Up-Modal.png)
 
 # After Login 
 
 After logged into the system, It will sighted welcoming words and log out button. It might be logged out by using logout button. 
 
-![Login Area](https://i.postimg.cc/y8M4S7fZ/Login-Area.png)
+![Login Area](https://i.postimg.cc/KYQSzwWX/Login-Area.png)
 
 # Edit City Modal
 
 In this modal, It will be edited some recorded fields like photoUrl and name of city. If It is insterted a invalid photoURL, photo won't be saw in photo section. It has to insterted valid URL to solve this issue.
 
-![Edit City Info Modal](https://i.postimg.cc/4NFTs6Vw/Edit-City-Info-Modal.png)
+![Edit City Info Modal](https://i.postimg.cc/t43H0Yt4/Edit-City-Info-Modal.png)
 
 
 
